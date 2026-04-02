@@ -31,6 +31,7 @@ public class EmpRoles{
                     return;
                 default:
                     System.out.println("Invalid choice! Please try again.\n");
+            }
         }
     }
 }
