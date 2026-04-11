@@ -5,14 +5,14 @@ class MediaPlayer {
         Scanner sc = new Scanner(System.in);
         Media myMedia;
 
-        System.out.println("Enter Audio Title:");
+        System.out.print("Enter Audio Title:");
         String audioTitle = sc.nextLine();
         myMedia = new Audio(audioTitle);
         myMedia.play();
 
         System.out.println("\n----------------------------\n");
 
-        System.out.println("Enter Video Title:");
+        System.out.print("Enter Video Title:");
         String videoTitle = sc.nextLine();
         myMedia = new Video(videoTitle);
         myMedia.play();
