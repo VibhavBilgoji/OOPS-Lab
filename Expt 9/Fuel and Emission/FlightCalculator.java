@@ -19,46 +19,37 @@ class AircraftFlight implements FuelCalculable, EmissionTrackable{
     private double distanceKm;
     private int passengers;
     private double fuelLiters;
-
     AircraftFlight(){
         distanceKm = fuelLiters = 0.0;
         passengers = 0;
     }
-
     AircraftFlight(double d, int p){
         distanceKm = d;
         passengers = p;
         fuelLiters = estimateFuelBurn(distanceKm, passengers);
     }
-
     double totalFuelCost(){
         final int fuelPerLit = 85;
         return estimateFuelBurn(distanceKm, passengers) * fuelPerLit;
     }
-
     double perPassFuelSur(){
         final float perPassBurn = 0.002f;
         final int fuelPerLit = 85;
         return perPassBurn * distanceKm * fuelPerLit;
     }
-
     double carbonOffsetCost(){
         final int costPerTonne = 1200;
         return costPerTonne * co2Emissions(fuelLiters)/1000;
     }
-
     String netTicketCost(){
         if(passengers == 0) return "No passengers, Breakdown not applicable.";
-
         final double fuelCostPerPass = totalFuelCost()/passengers;
         final double offsetCostPerPass = carbonOffsetCost()/passengers;
-
         var res = "\nNet Ticket Cost Breakdown:\n";
         res += String.format("- Fuel Cost per Passenger: Rs.%.2f\n", fuelCostPerPass);
         res += String.format("- Emission Cost per Passenger: Rs.%.2f" , offsetCostPerPass);
         return res;
     }
-
     double getDistanceKm() {return distanceKm;}
     void setDistanceKm(double d) {distanceKm = d;}
     int getPassengers() {return passengers;}
