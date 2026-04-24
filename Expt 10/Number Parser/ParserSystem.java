@@ -20,7 +20,7 @@ public class ParserSystem{
                 continue;
             }
 
-            try{
+            try {
                 num = NumberParser.parseAndDouble(input);
                 System.out.printf("Parsed and Doubled: %s\n\n", num);
             } catch (NumberFormatException e){
@@ -34,7 +34,7 @@ public class ParserSystem{
             else if(input.equalsIgnoreCase("n")) choice = false;
             else {
                 System.out.println("Invalid input. Exiting...");
-                System.exit(1);
+                return;
             }
         } while(choice);
         sc.close();
