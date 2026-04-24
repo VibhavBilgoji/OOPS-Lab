@@ -9,9 +9,7 @@ class NumberParser{
 public class ParserSystem{
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
-        boolean choice = false;
         String input;
-        int num;
         do{
             System.out.print("Enter the String: ");
             input = sc.nextLine();
@@ -21,22 +19,19 @@ public class ParserSystem{
             }
 
             try {
-                num = NumberParser.parseAndDouble(input);
+                final int num = NumberParser.parseAndDouble(input);
                 System.out.printf("Parsed and Doubled: %s\n\n", num);
             } catch (NumberFormatException e){
                 System.out.printf("Error: '%s' is not a valid integer.\n\n", input);
             }
 
-            System.out.print("Do you want to continue? (y/n): ");
+            System.out.print("Enter y to continue: ");
             input = sc.nextLine();
 
-            if(input.equalsIgnoreCase("y")) choice = true;
-            else if(input.equalsIgnoreCase("n")) choice = false;
-            else {
-                System.out.println("Invalid input. Exiting...");
-                return;
-            }
-        } while(choice);
+            if(input.equalsIgnoreCase("y")) continue;
+            else break;
+        } while(true);
+        System.out.println("Exiting...");
         sc.close();
     }
 }
