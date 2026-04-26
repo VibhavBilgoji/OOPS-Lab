@@ -35,7 +35,7 @@ class ArrayOperations {
     }
 }
 
-public class Q1Driver {
+public class OpsOnArray {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         try {
