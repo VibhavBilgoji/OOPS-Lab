@@ -1,18 +1,17 @@
 import java.util.Scanner;
 
 public class FactorialRecur {
-
     public static void main() {
-        Scanner sc = new Scanner(System.in);
+        final Scanner sc = new Scanner(System.in);
         System.out.print("Enter a non-negative integer: ");
-        int num = sc.nextInt();
+        final int num = sc.nextInt();
         sc.close();
 
-        int result = (num >= 0) ? fact(num) : null;
+        final int result = (num >= 0) ? fact(num) : null;
         System.out.println("Factorial of " + num + " is: " + result);
 
     }
-    public static int fact(int num) {
+    final public static int fact(int num) {
         if ((num == 0) | (num == 1)) return 1;
         return num * fact(num - 1);
     }
