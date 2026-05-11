@@ -13,7 +13,7 @@ public class ParserSystem{
         do{
             System.out.print("Enter the String: ");
             input = sc.nextLine();
-            if(input == "") {
+            if(input.isBlank() || input.isEmpty()) {
                 System.out.println("String is null. Try again.\n");
                 continue;
             }

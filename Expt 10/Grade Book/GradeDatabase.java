@@ -30,7 +30,10 @@ public class GradeDatabase{
         System.out.print("Enter Student count: ");
         final int n = sc.nextInt();
         sc.nextLine();
-        if(n <= 0) return;
+        if(n <= 0) {
+            sc.close();
+            return;
+        }
         GradeBook gradeBook = new GradeBook(n);
 
         for(short i = 0; i < n; i++){
@@ -42,7 +45,7 @@ public class GradeDatabase{
                 --i;
                 continue;
             }
-            System.out.print("Grade: ");
+            System.out.print("Grade (Integer): ");
             final int grade = sc.nextInt();
             if(grade < 0 || grade > 100) {
                 System.out.println("Invalid grade. Must be between 0 and 100.");
