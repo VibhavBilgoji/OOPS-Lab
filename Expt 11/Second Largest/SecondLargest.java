@@ -27,7 +27,7 @@ class find2ndLargest{
     public int get2ndLargest(){
         int l = Integer.MIN_VALUE, lNext = Integer.MIN_VALUE;
 
-        Iterator<Integer> it = arr.iterator();
+        ListIterator<Integer> it = arr.listIterator();
         while(it.hasNext()){
             final int curr = it.next();
             if(curr > l){
