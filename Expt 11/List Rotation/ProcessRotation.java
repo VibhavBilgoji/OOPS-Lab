@@ -13,7 +13,8 @@ public class ProcessRotation{
 
         System.out.print("Enter the number of positions to rotate: ");
         int k = sc.nextInt();
-        System.out.print("List after rotations: " + rl.rotate(k));
+        System.out.print("List after rotations: ");
+        rl.rotate(k).forEach(e -> System.out.print(e + " "));
         sc.close();
     }
 }
