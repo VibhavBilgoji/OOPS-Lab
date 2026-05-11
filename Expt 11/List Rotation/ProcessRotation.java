@@ -34,4 +34,7 @@ class RotateList{
         rotated.addAll(list);
         return new LinkedList<Integer>(rotated.subList(n - k, n * 2 - k));
     }
+
+    @Override
+    public String toString(){ return list.toString(); }
 }

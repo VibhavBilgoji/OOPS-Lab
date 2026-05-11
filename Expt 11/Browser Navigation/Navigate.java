@@ -182,4 +182,9 @@ class NavigationSystem {
         System.out.println("URL: " + currPage.getURL());
         System.out.println("Title: " + currPage.getTitle());
     }
+
+    @Override
+    public String toString() {
+        return "NavigationSystem{" + "prev=" + prev + ", next=" + next + ", currPage=" + currPage + '}';
+    }
 }
