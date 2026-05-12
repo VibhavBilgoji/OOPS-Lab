@@ -11,7 +11,7 @@ public class SecondLargest{
         for(int i = 0; i < n; i++) arr.add(sc.nextInt());
 
         find2ndLargest f2l = new find2ndLargest(arr);
-        System.out.println("Second largest element in the array: " + f2l.get2ndLargest());
+        System.out.println("Second largest element in the array: " + f2l);
         sc.close();
     }
 }
@@ -37,5 +37,10 @@ class find2ndLargest{
             else if(curr > lNext && curr != l) lNext = curr;
         }
         return lNext;
+    }
+
+    @Override
+    public String toString() {
+        return get2ndLargest() + "";
     }
 }
