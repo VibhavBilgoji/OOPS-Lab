@@ -54,6 +54,11 @@ class Task {
         priority = p;
     }
 
+    @Override
+    public String toString() {
+        return "Task ID: " + taskId + "\nDescription: " + description + "\nPriority: " + priority;
+    }
+
     public String getTaskId() { return taskId; }
     public void setTaskId(String t) { taskId = t; }
     public String getDescription() { return description; }
@@ -120,6 +125,19 @@ class TaskList {
             System.out.println("Description: " + t.getDescription());
             System.out.println("Priority: " + t.getPriority());
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        Iterator<Task> it = tasks.iterator();
+        while (it.hasNext()) {
+            Task t = it.next();
+            sb.append("\nTask ID: ").append(t.getTaskId())
+              .append("\nDescription: ").append(t.getDescription())
+              .append("\nPriority: ").append(t.getPriority()).append("\n");
+        }
+        return sb.toString();
     }
 
     public Vector<Task> getTasks() { return tasks; }
