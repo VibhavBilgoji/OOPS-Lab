@@ -1,0 +1,5 @@
+--- Teachers teaching physics ---
+ID: T102, Name: Robert Downey, Subject: Physics
+ID: T105, Name: Albert Einstein, Subject: Physics
+ID: T108, Name: Marie Curie, Subject: Physics
+ID: T111, Name: Nikola Tesla, Subject: Physics

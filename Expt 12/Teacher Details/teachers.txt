@@ -1,0 +1,12 @@
+T101, Mary Jane, Mathematics
+T102, Robert Downey, Physics
+T103, Sarah O'Connor, Computer Science
+T104, Indiana Jones, History
+T105, Albert Einstein, Physics
+T106, Ada Lovelace, Computer Science
+T107, Srinivasa Ramanujan, Mathematics
+T108, Marie Curie, Physics
+T109, Alan Turing, Computer Science
+T110, Katherine Johnson, Mathematics
+T111, Nikola Tesla, Physics
+T112, Grace Hopper, Computer Science
