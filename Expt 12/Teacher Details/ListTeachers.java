@@ -1,6 +1,5 @@
 import java.util.*;
 import java.io.*;
-import java.nio.file.*;
 
 class Teacher{
     private String id, name, subject;
@@ -20,39 +19,43 @@ class Teacher{
 
     @Override
     public String toString(){
-        return String.format("ID: %s, Name: %s, Subject: %s", id, name, subject);
+        return String.format("ID: %s, Name: %s, Subject: %s\n", id, name, subject);
     }
 }
 
-public class ListTeachers{
-    public static void main(String[] args){
+public class ListTeachers {
+    public static void main(String[] args) {
         String filter;
         try(Scanner sc = new Scanner(System.in)) {
             System.out.print("Enter the subject to filter teachers: ");
             filter = sc.nextLine().trim().toLowerCase();
         }
-        Path inputPath = Paths.get("teachers.txt");
-        Path outputPath = Paths.get("teacher_report.txt");
+
+        File inputFile = new File("teachers.txt");
+        File outputFile = new File("teacher_report.txt");
 
         try {
-            List<String> lines = Files.readAllLines(inputPath);
-            final int n = lines.size();
-            Teacher[] teachers = new Teacher[n];
-
-            for (int i = 0; i < n; i++) {
-                String[] parts = lines.get(i).split("(,\\s)+");
-                String id = parts[0];
-                String name = parts[1];
-                String subject = parts[2];
-                teachers[i] = new Teacher(id, name, subject);
+            List<String> lines = new ArrayList<>();
+            try (BufferedReader reader = new BufferedReader(new FileReader(inputFile))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    lines.add(line);
+                }
             }
 
-            try (BufferedWriter writer = Files.newBufferedWriter(outputPath)) {
+            List<Teacher> teacherList = new ArrayList<>();
+            for (String line : lines) {
+                String[] parts = line.split("(,\\s)+");
+                teacherList.add(new Teacher(parts[0], parts[1], parts[2]));
+            }
+
+            new FileOutputStream(outputFile).close();
+
+            try (FileWriter writer = new FileWriter(outputFile)) {
                 writer.write(String.format("--- Teachers teaching %s ---\n", filter));
-                for (Teacher t : teachers) {
+                for (Teacher t : teacherList) {
                     if(t.getSubject().toLowerCase().equals(filter)){
                         writer.write(t.toString());
-                        writer.newLine();
                     }
                 }
                 System.out.println("Processing complete. Check teacher_report.txt");

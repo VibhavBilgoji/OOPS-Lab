@@ -1,5 +1,5 @@
 --- Electricity Bills ---
-Consumer Name: Vibhav, Number: A101, Units Consumed: 150.50, Bill Amount: Rs.1008.35
-Consumer Name: Shubham, Number: B202, Units Consumed: 240.00, Bill Amount: Rs.1608.00
-Consumer Name: Sparsh, Number: C303, Units Consumed: 85.20, Bill Amount: Rs.570.84
-Consumer Name: Walsh, Number: D404, Units Consumed: 410.75, Bill Amount: Rs.2752.02
+Consumer Name: Vibhav, Number: A101, Units Consumed: 150.50, Bill Amount: Rs.1143.80
+Consumer Name: Shubham, Number: B202, Units Consumed: 240.00, Bill Amount: Rs.1824.00
+Consumer Name: Sparsh, Number: C303, Units Consumed: 85.20, Bill Amount: Rs.647.52
+Consumer Name: Walsh, Number: D404, Units Consumed: 410.75, Bill Amount: Rs.3121.70

@@ -1,6 +1,5 @@
 import java.util.*;
 import java.io.*;
-import java.nio.file.*;
 
 class Consumer{
     private String name, number;
@@ -32,38 +31,37 @@ class Consumer{
 
     @Override
     public String toString(){
-        return String.format("Consumer Name: %s, Number: %s, Units Consumed: %.2f, Bill Amount: Rs.%.2f", name, number, unitsConsumed, calculateBill());
+        return String.format("Consumer Name: %s, Number: %s, Units Consumed: %.2f, Bill Amount: Rs.%.2f\n", name, number, unitsConsumed, calculateBill());
     }
 }
 
-public class BillSystem{
-    public static void main(String[] args){
+public class BillSystem {
+    public static void main(String[] args) {
         System.out.print("Enter the Price per Unit (in Rs.): ");
         float pricePerUnit;
         try(Scanner sc = new Scanner(System.in)) {
             pricePerUnit = sc.nextFloat();
         }
 
-        Path inputPath = Paths.get("consumers.txt");
-        Path outputPath = Paths.get("bills.txt");
+        File inputFile = new File("consumers.txt");
+        File outputFile = new File("bills.txt");
 
-        try{
-            List<String> list = Files.readAllLines(inputPath);
-            final int n = list.size();
-            Consumer[] consumers = new Consumer[n];
-            for(int i = 0; i < n; ++i){
-                String[] parts = list.get(i).split("\\s+");
-                String name = parts[0];
-                String number = parts[1];
-                float units = Float.parseFloat(parts[2]);
-                consumers[i] = new Consumer(name, number, units, pricePerUnit);
-            }
-            try(BufferedWriter writer = Files.newBufferedWriter(outputPath)) {
-                writer.write("--- Electricity Bills ---\n");
-                for(Consumer c : consumers){
-                    writer.write(c.toString());
-                    writer.newLine();
+        try {
+            List<Consumer> consumers = new ArrayList<>();
+            try (BufferedReader reader = new BufferedReader(new FileReader(inputFile))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    String[] parts = line.split("\\s+");
+                    String name = parts[0];
+                    String number = parts[1];
+                    float units = Float.parseFloat(parts[2]);
+                    consumers.add(new Consumer(name, number, units, pricePerUnit));
                 }
+            }
+
+            try (FileWriter writer = new FileWriter(outputFile)) {
+                writer.write("--- Electricity Bills ---\n");
+                for(Consumer c : consumers) writer.write(c.toString());
                 System.out.println("Processing complete. Check bills.txt");
             }
         } catch (IOException e) {
